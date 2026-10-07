@@ -431,3 +431,42 @@ html[data-atmosphere="infinite"]{color-scheme:light}
 @media(max-width:760px){
   .grain{display:none}
 }
+
+/* AJAYNXT visual polish: stable contrast, readable type and calmer interaction. */
+html[data-atmosphere="infinite"]{
+  --bg:#f5f1ea;
+  --bg2:#fbfaf7;
+  --surface:#fffdfa;
+  --surface2:#e9e1d5;
+  --ink:#171412;
+  --muted:#625b54;
+  --muted2:#8d8379;
+  --accent:#b6533e;
+  --accent2:#e6b2a4;
+  --accentInk:#fffaf7;
+  --line:rgba(23,20,18,.14);
+  --line2:rgba(23,20,18,.3);
+  --shadow:0 28px 80px rgba(72,48,35,.13);
+}
+body{font-size:15px;line-height:1.6;-webkit-tap-highlight-color:color-mix(in srgb,var(--accent) 22%,transparent)}
+h1,h2,h3,p{ text-wrap:pretty }
+a,button{touch-action:manipulation}
+.hero-copy-panel{background:linear-gradient(145deg,#9f4938,#4a2923)}
+.hero-luxe h1{font-size:clamp(4.5rem,8vw,8.3rem);line-height:.84;letter-spacing:-.065em}
+.hero-role{font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.35}
+.hero-lede{font-size:clamp(.95rem,1.1vw,1.08rem);line-height:1.7}
+.hero-disciplines strong{font-size:.8rem;letter-spacing:.02em}
+.button,.header-cta,.desktop-nav a,.atmosphere-button span,.atmosphere-button b,.hero-status,.eyebrow,.availability,.project-meta>a,.project-meta small,.browser-bar b,.filters button,.archive-head>a,footer nav a,.footer-bottom,.submit-button{font-size:clamp(.65rem,.7vw,.75rem);letter-spacing:.09em}
+.section-heading h2,.statement h2,.process-title h2,.about h2,.contact h2{line-height:.9}
+.heading-note,.statement>div:nth-child(2)>p:last-child,.about-copy>p:not(.eyebrow):not(.lead),.contact-copy>p:not(.eyebrow){font-size:clamp(.92rem,1vw,1.05rem);line-height:1.75}
+.project-meta>p{font-size:.85rem;line-height:1.6}
+.project-meta h3{line-height:1}
+.site-header.scrolled{background:color-mix(in srgb,var(--bg) 94%,transparent)}
+.atmosphere-button{min-width:118px}
+@media(max-width:760px){
+  .hero-luxe h1{font-size:clamp(3.7rem,17vw,5.4rem)}
+  .hero-role{font-size:1.05rem}
+  .hero-lede{font-size:.95rem}
+  .section-heading h2,.statement h2,.film-overlay h2,.process-title h2,.about h2,.contact h2{line-height:.94}
+  .project-meta>p{font-size:.9rem}
+}

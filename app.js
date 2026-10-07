@@ -2,7 +2,8 @@
 const loader=null;
 const atmosphereControl=$('[data-atmosphere-control]');
 let paletteStep=Number(localStorage.getItem('ajaynxt-palette-step')||0);
-let paletteRunning=localStorage.getItem('ajaynxt-palette-running')!=='false';
+// Keep the visual system stable while allowing visitors to opt into another tone manually.
+let paletteRunning=false;
 let atmosphereTimer;
 
 function luxuryPalette(step){
@@ -49,7 +50,7 @@ function applyInfinitePalette(advance=false){
   const count=$('[data-atmosphere-count]');
   if(count)count.textContent=`${String((paletteStep%99)+1).padStart(2,'0')} / ∞`;
   const label=atmosphereControl?.querySelector('span');
-  if(label)label.textContent=paletteRunning?'Infinite colour':'Colour locked';
+  if(label)label.textContent='Change colour';
   atmosphereControl?.setAttribute('aria-pressed',String(!paletteRunning));
   localStorage.setItem('ajaynxt-palette-step',String(paletteStep));
   dispatchEvent(new CustomEvent('ajaynxt:atmosphere',{detail:{tone:'light',hue:p.hue}}));
@@ -61,9 +62,8 @@ function scheduleAtmosphere(){
   }
 }
 atmosphereControl?.addEventListener('click',()=>{
-  paletteRunning=!paletteRunning;
-  localStorage.setItem('ajaynxt-palette-running',String(paletteRunning));
-  applyInfinitePalette(false);
+  applyInfinitePalette(true);
+  localStorage.setItem('ajaynxt-palette-running','false');
   scheduleAtmosphere();
 });
 applyInfinitePalette(false);
